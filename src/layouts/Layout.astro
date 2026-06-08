@@ -13,17 +13,57 @@ import Sidebar from '../components/shared/Sidebar.astro'
 		<script src="https://kit.fontawesome.com/f5b34e2f30.js" crossorigin="anonymous"></script>
 		<meta name="generator" content={Astro.generator} />
 		<title>Veiga & Monteiro</title>
+
+		<!-- Google Fonts: Libre Caslon Text + Work Sans -->
+    	<link rel="preconnect" href="https://fonts.googleapis.com" />
+    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    	<link
+      		href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;600;700&display=swap"
+      		rel="stylesheet"
+    	/>
+
+		<!-- Material Symbols Outlined (ícones) -->
+    	<link
+      		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      		rel="stylesheet"
+    	/>
+	
 	</head>
-	<body class="bg-background">
-		<header class="flex justify-between p-3.5! fixed w-screen bg-background items-center text-primary border-b">
-			<i id="toggleMenu" class="fa-solid fa-bars cursor-pointer text-2xl transition-colors hover:text-primary/75"></i>
-			<h1 class="font-bold text-3xl">Veiga & Monteiro</h1>
+	<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+
+		<!--HEADER TOPO FIXO-->
+		<header class="flex justify-between p-3.5! h-16 z-50 fixed top-0 w-full bg-surface items-center text-primary border-b">
+
+			<!--BOTÃO SIDEBAR -->
+      		<button
+        		id="menu-btn"
+        		aria-label="Abrir menu"
+        		class="text-primary cursor-pointer active:opacity-70 hover:text-secondary transition-colors flex items-center justify-center p-2 rounded-full hover:bg-surface-variant"
+      		>
+        		<span class="material-symbols-outlined">menu</span>
+      		</button>
+
+			<!--TITULO CENTRALIZADO -->
+			<!--dark:text-primary-fixed-->
+			<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary md:font-display-lg md:text-display-lg truncate max-w-[60vw]">VEIGA &amp; MONTEIRO</h1>
+
+			<!-- -->
 			<a href="./"><i class="fa-solid fa-building-columns cursor-pointer text-2xl transition-colors hover:text-primary/75"></i></a>
 		</header>
+
+
 		<div class="h-16.25"></div>
-		<div id="overlay" class="fixed inset-0 backdrop-blur-sm z-10 hidden"></div>
+		<div id="overlay" class="fixed inset-0 backdrop-blur-sm z-60 hidden"></div>
+
+		<!--SIDEBAR -->
 		<Sidebar></Sidebar>
-		<slot />
+
+		<!--CONTEÚDO PRINCPAL -->
+		<main class="grow pt-16">
+			<slot></slot>
+		</main>
+
+		<!--FOOTER -->
 		<footer class="bg-primary flex flex-col items-center text-background gap-3 py-3!">
 			<h2 class="text-2xl text-secondary font-bold">Veiga & Monteiro</h2>
 			<div class="flex flex-col sm:flex-row gap-5">
@@ -35,7 +75,7 @@ import Sidebar from '../components/shared/Sidebar.astro'
 		</footer>
 	</body>
 	<script>
-		const button = document.getElementById('toggleMenu')
+		const button = document.getElementById('menu-btn')
 		const overlay = document.getElementById('overlay')
 		const sidebar = document.querySelector('aside')
 		function toggleSidebar(){
