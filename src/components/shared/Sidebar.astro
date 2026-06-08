@@ -1,27 +1,27 @@
 ---
 const buttons = [
-    {name:"Institucional", link:"./", icon:"fa-solid fa-building-columns"},
-    {name:"Áreas de atuação", link:"./practiceAreas", icon:"fa-solid fa-gavel"},
-    {name:"Fale conosco", link:"./contactUs", icon:"fa-solid fa-envelope"}
+    {name:"Institucional", link:"./", icon:"corporate_fare"},
+    {name:"Áreas de atuação", link:"./practiceAreas", icon:"gavel"},
+    {name:"Fale conosco", link:"./contactUs", icon:"mail"}
 ]
 ---
 
 <!--dark:bg-surface-container-highest -->
 <!--dark:text-primary-fixed -->
 <!--dark:border-outline -->
-<aside class="bg-surface-container-low  text-primary  font-title-lg text-title-lg h-full w-80 rounded-r-none border-r border-outline-variant  shadow-xl fixed inset-y-0 left-0 z-60 flex flex-col transform transition-transform duration-300 ease-in-out">
+<aside class="bg-surface-container-low  text-primary  font-title-lg text-title-lg h-full w-80 rounded-r-none border-r border-outline-variant  shadow-xl fixed inset-y-0 left-0 z-60 flex flex-col transform transition-transform duration-300 ease-in-out -translate-x-full">
     
     <!--dark:border-outline -->
     <div class="px-6! py-8! border-b border-outline-variant  mb-4">
         <!--dark:text-primary-fixed -->
         <h1 class="font-display-lg-mobile! text-display-lg-mobile! text-primary ">VEIGA &amp; MONTEIRO</h1>
     </div>
-    <div class="flex flex-col gap-4 m-2!">
+    <div class="flex flex-col gap-3 m-2!">
         {
             buttons.map(b => {
-                return <a class="rounded-md flex items-center gap-5 transition-colors p-2! hover:bg-gray-300 font-semibold"
+                return <a class="flex items-center gap-4 px-4! py-3! m-2! duration-200 text-on-surface-variant  rounded-full hover:bg-surface-container-high transition-all"
                 href={b.link}>
-                    <span class="material-symbols-outlined cursor-pointer" data-icon=""></span>
+                    <span class="material-symbols-outlined cursor-pointer" data-icon={b.icon}>{b.icon}</span>
                     {b.name}
                     </a>
             })
