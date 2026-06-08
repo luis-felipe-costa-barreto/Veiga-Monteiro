@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Sidebar from '../components/shared/Sidebar.astro'
+const props = Astro.props
 ---
 
 <!doctype html>
@@ -12,7 +13,7 @@ import Sidebar from '../components/shared/Sidebar.astro'
 		<link rel="icon" href="/favicon.ico" />
 		<script src="https://kit.fontawesome.com/f5b34e2f30.js" crossorigin="anonymous"></script>
 		<meta name="generator" content={Astro.generator} />
-		<title>Veiga & Monteiro</title>
+		<title>{props.title}</title>
 
 		<!-- Google Fonts: Libre Caslon Text + Work Sans -->
     	<link rel="preconnect" href="https://fonts.googleapis.com" />
