@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+const practiceAreas = [
+  {
+    icon: 'work',
+    title: 'Direito Trabalhista',
+    description: 'Atuação focada na defesa dos interesses corporativos. Mitigamos riscos através de auditorias rigorosas e oferecemos representação incisiva em contenciosos estratégicos.',
+    services: [
+      'Compliance e Auditoria Trabalhista',
+      'Contencioso Estratégico',
+      'Consultoria em Relações Sindicais',
+    ],
+  },
+  {
+    icon: 'domain',
+    title: 'Direito Empresarial',
+    description: 'Estruturação e blindagem legal para Pequenas e Médias Empresas. Nossa expertise garante que a base contratual e societária do seu negócio seja inabalável.',
+    services: [
+      'Contratos Comerciais Complexos',
+      'Reorganização Societária',
+      'Assessoria Contínua para PMEs',
+    ],
+  },
+];
+
+const pillars = [
+  {
+    icon: 'shield_person',
+    title: 'Atendimento Personalizado',
+    text: 'Compreendemos a fundo a cultura e as necessidades singulares de cada cliente.',
+  },
+  {
+    icon: 'chess',
+    title: 'Soluções Estratégicas',
+    text: 'Não apenas resolvemos problemas, mas antecipamos cenários para gerar vantagem.',
+  },
+  {
+    icon: 'gavel',
+    title: 'Segurança Jurídica',
+    text: 'Solidez na aplicação da lei para que sua empresa opere com total tranquilidade.',
+  },
+];
+---
+
+<Layout title="Áreas de atuação">
+    <main class="grow pt-16 flex flex-col items-center">
+    
+        <!--Hero Section -->
+        <section class="w-full px-margin-mobile! py-stack-xl! md:px-margin-desktop! md:py-40! text-center">
+            <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-stack-md!">Áreas de Atuação</h1>
+            <div class="w-16 h-0.5 bg-secondary mx-auto! mb-stack-lg!"></div>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto!">
+                Oferecemos assessoria jurídica de excelência, pautada na precisão e no conhecimento estratégico,
+                desenhada especificamente para proteger e alavancar os negócios da sua empresa.
+            </p>
+        </section>
+    
+        <section class="w-full max-w-max-width px-margin-mobile! md:px-margin-desktop! grid grid-cols-1 md:grid-cols-2 gap-gutter mb-stack-xl!">
+            {
+                practiceAreas.map((areas) => (
+    
+                    <article class="bg-surface-container-lowest ambient-shadow border-t border-secondary rounded-lg p-stack-lg! flex flex-col h-full group relative overflow-hidden">
+    
+                        <!-- Decorative background subtle pattern/gradient -->
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -z-10 transition-transform duration-500 group-hover:scale-110"></div>
+    
+                        <!--Simbol and title -->
+                        <div class="flex items-center gap-4 mb-stack-md!">
+                            <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined text-3xl"style="font-variation-settings: 'FILL' 1;" data-icon={areas.icon}>{areas.icon}</span>
+                            </div>
+                            <h2 class="font-headline-md-mobile text-headline-md-mobile md:font-headline-md md:text-headline-md text-primary">{areas.title}</h2>
+                        </div>
+    
+                        <!--Description -->
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg! grow">
+                            {areas.description}
+                        </p>
+    
+                        <!--Services-->
+                        <div class="space-y-stack-sm mt-auto! border-t border-outline-variant/30 pt-stack-md!">
+                            {
+                                areas.services.map((s) => (
+                                    <div class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-secondary mt-1! text-[20px]">chevron_right</span>
+                                        <span class="font-body-md text-body-md text-primary">{s}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </article>
+                ))
+            }
+        </section>
+    </main>
+</Layout>
