@@ -1,9 +1,11 @@
 ---
 const buttons = [
-    {name:"Institucional", link:"./", icon:"corporate_fare"},
-    {name:"Áreas de atuação", link:"./practiceAreas", icon:"gavel"},
-    {name:"Fale conosco", link:"./contactUs", icon:"mail"}
+    {name:"Institucional", link:"/", icon:"corporate_fare"},
+    {name:"Áreas de atuação", link:"/practiceAreas", icon:"gavel"},
+    {name:"Fale conosco", link:"/contactUs", icon:"mail"}
 ]
+
+const currentPath = Astro.url.pathname
 ---
 
 <!--dark:bg-surface-container-highest -->
@@ -19,7 +21,8 @@ const buttons = [
     <div class="flex flex-col gap-3 m-2!">
         {
             buttons.map(b => {
-                return <a class="flex items-center gap-4 px-4! py-3! m-2! duration-200 text-on-surface-variant  rounded-full hover:bg-surface-container-high transition-all"
+                const isActive = currentPath.replace(/\/$/, '') === b.link.replace(/\/$/, '')
+                return <a class={`flex items-center gap-4 px-4! py-3! m-2! duration-200 rounded-full transition-colors ${isActive ? "text-background bg-secondary" : "text-on-surface-variant hover:bg-surface-container" }`}
                 href={b.link}>
                     <span class="material-symbols-outlined cursor-pointer" data-icon={b.icon}>{b.icon}</span>
                     {b.name}
