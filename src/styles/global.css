@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme{
+    --color-background: rgb(252,249,248);
+    --color-primary: rgb(0,10,48);
+    --color-secondary: rgb(119,90,25);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

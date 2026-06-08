@@ -1,23 +1,48 @@
+---
+import '../styles/global.css';
+import Sidebar from '../components/shared/Sidebar.astro'
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<script src="https://kit.fontawesome.com/f5b34e2f30.js" crossorigin="anonymous"></script>
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Veiga & Monteiro</title>
 	</head>
-	<body>
+	<body class="bg-background">
+		<header class="flex justify-between p-3.5! fixed w-screen bg-background items-center text-primary border-b">
+			<i id="toggleMenu" class="fa-solid fa-bars cursor-pointer text-2xl transition-colors hover:text-primary/75"></i>
+			<h1 class="font-bold text-3xl">Veiga & Monteiro</h1>
+			<a href="./"><i class="fa-solid fa-building-columns cursor-pointer text-2xl transition-colors hover:text-primary/75"></i></a>
+		</header>
+		<div class="h-16.25"></div>
+		<div id="overlay" class="fixed inset-0 backdrop-blur-sm z-10 hidden"></div>
+		<Sidebar></Sidebar>
 		<slot />
+		<footer class="bg-primary flex flex-col items-center text-background gap-3 py-3!">
+			<h2 class="text-2xl text-secondary font-bold">Veiga & Monteiro</h2>
+			<div class="flex gap-5">
+				<p class="cursor-pointer">Privacy Policy</p>
+				<p class="cursor-pointer">Terms of Service</p>
+				<p class="cursor-pointer">Legal Disclaimer</p>
+			</div>
+			<p class="text-background/50">@ 2026 Veiga & Monteiro Advocacia. All rights reserved</p>
+		</footer>
 	</body>
+	<script>
+		const button = document.getElementById('toggleMenu')
+		const overlay = document.getElementById('overlay')
+		const sidebar = document.querySelector('aside')
+		function toggleSidebar(){
+			sidebar?.classList.toggle('-translate-x-full')
+			overlay?.classList.toggle('hidden')
+		}
+		button?.addEventListener('click', toggleSidebar)
+		overlay?.addEventListener('click', toggleSidebar)
+	</script>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
